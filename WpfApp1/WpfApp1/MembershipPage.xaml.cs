@@ -26,6 +26,12 @@ namespace WpfApp1
                 Photo.Source = new BitmapImage(new Uri(op.FileName));
             }
         }
+        private void BackPayment_Click(object sender, RoutedEventArgs e)
+        {
+            Tab1.IsSelected = true;
+        }
+
+ 
         private void ShowPassword_Checked(object sender, RoutedEventArgs e)
         {
             passwordTxtBox.Text = PasswordBox.Password;
@@ -38,12 +44,19 @@ namespace WpfApp1
             passwordTxtBox.Visibility = Visibility.Collapsed;
             PasswordBox.Visibility = Visibility.Visible;
         }
-
-        private void Back_Click(object sender, RoutedEventArgs e)
+        private void Payment_Click(object sender, RoutedEventArgs e)
+        {
+            Tab2.IsSelected = true;
+          
+            CardHolder.Text = FirstName.Text + " " + LastName.Text;
+        }
+        private void BackLogin_Click(object sender, RoutedEventArgs e)
         {
             MainWindow window = new MainWindow();
             window.Show();
             this.Close();
         }
+
+  
     }
 }

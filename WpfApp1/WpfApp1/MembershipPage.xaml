@@ -6,63 +6,139 @@
         xmlns:local="clr-namespace:WpfApp1"
         mc:Ignorable="d"
         Title="MembershipPage" Height="500" Width="400" WindowStyle="None" WindowStartupLocation="CenterScreen" RenderTransformOrigin="0.5,0.5" VerticalAlignment="Top">
-    <Window.Background>
-        <ImageBrush ImageSource="Background.png"/>
-    </Window.Background>
+    
     <Grid>
-        <Grid.Background>
-            <ImageBrush/>
-        </Grid.Background>
-        <Grid Margin="0,0,-0.4,-0.4">
-            <Grid.Background>
-                <ImageBrush/>
-            </Grid.Background>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="2*"/>
-                <RowDefinition Height="0.5*"/>
-                <RowDefinition Height="0.5*"/>
-                <RowDefinition Height="0.5*"/>
-                <RowDefinition/>
-                <RowDefinition Height="0.7*"/>
-                <RowDefinition/>
-            </Grid.RowDefinitions>
+        <TabControl Margin="0,-13,-0.4,-0.4" HorizontalAlignment="Right" Width="394" Foreground="#FF5D3232">
+            
+            <TabItem x:Name="Tab1"  Visibility="Hidden">
+                <Grid>
+                    <Grid.Background>
+                        <ImageBrush ImageSource="Background.png"/>
+                    </Grid.Background>
+                    <Grid Margin="0,0,-0.4,-0.4">
+                        <Grid.Background>
+                            <ImageBrush/>
+                        </Grid.Background>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="2*"/>
+                            <RowDefinition Height="0.5*"/>
+                            <RowDefinition Height="0.5*"/>
+                            <RowDefinition Height="0.5*"/>
+                            <RowDefinition/>
+                            <RowDefinition Height="0.7*"/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
 
-            <StackPanel Grid.Row = "0">
-                <WrapPanel Margin="10" HorizontalAlignment="Center">
-                    <Image Name="Photo">
-                        <Image.Clip>
-                            <EllipseGeometry RadiusX="60" RadiusY="60" Center="190 60"/>
-                        </Image.Clip>
-                    </Image>
-                </WrapPanel>
-            </StackPanel>
-            <StackPanel Grid.Row = "0">
-                <WrapPanel Margin="10" HorizontalAlignment="Center">
-                    <Button Margin="260 120 0 0" Width="71" Background="Transparent" Click="LoadPicture_Click" Content="Load" FontFamily="Arial"/>
-                </WrapPanel>
-            </StackPanel>
+                        <StackPanel Grid.Row = "0">
+                            <WrapPanel Margin="10" HorizontalAlignment="Center">
+                                <Image Name="Photo">
+                                    <Image.Clip>
+                                        <EllipseGeometry RadiusX="60" RadiusY="60" Center="185 60"/>
+                                    </Image.Clip>
+                                </Image>
+                            </WrapPanel>
+                        </StackPanel>
+                        <StackPanel Grid.Row = "0">
+                            <WrapPanel Margin="10" HorizontalAlignment="Center">
+                                <Button Margin="260 120 0 0" Width="71" Background="Transparent" Click="LoadPicture_Click" Content="Load" FontFamily="Arial"/>
+                            </WrapPanel>
+                        </StackPanel>
 
-            <StackPanel Grid.Row="1" Margin="30 0">
-                <TextBlock Text="Name" FontFamily="Arial"/>
-                <TextBox x:Name="Name" Background="Transparent" BorderBrush="#FFCDE4F9"/>
-            </StackPanel>
-            <StackPanel Grid.Row="2" Margin="30 0">
-                <TextBlock Text="Email" FontFamily="Arial"/>
-                <TextBox x:Name="Email" Background="Transparent" BorderBrush="#FFCDE4F9"/>
-            </StackPanel>
-            <StackPanel Grid.Row="3" Margin="30 0">
-                <TextBlock Text="Phone" FontFamily="Arial"/>
-                <TextBox x:Name="Phone" Background="Transparent" BorderBrush="#FFCDE4F9"/>
-            </StackPanel>
-            <StackPanel x:Name="Password" Grid.Row="3" Margin="30,39.8,30,21.6" Grid.RowSpan="4">
-                <TextBlock Text="Password" FontFamily="Arial" Margin="0,0,-0.4,0"/>
-                <PasswordBox x:Name="PasswordBox" BorderBrush="#FFCDE4F9" Background="Transparent" FontFamily="Arial"/>
-                <TextBox x:Name="passwordTxtBox" Visibility="Collapsed" FontFamily="Arial"/>
-                <CheckBox x:Name="Check_Password" Content="Show Password"
+                        <StackPanel Grid.Row="1" Margin="30 0">
+                            <TextBlock Text="First Name" FontFamily="Arial"/>
+                        </StackPanel>
+                        <StackPanel Grid.Row="1" Margin="30 20 70 0">
+                            <TextBox x:Name="FirstName" Background="Transparent" BorderBrush="#FFCDE4F9" Margin="0,0,137,0"/>
+                        </StackPanel>
+                        <StackPanel Grid.Row="1" Margin="130 0">
+                            <TextBlock Text="Last Name" FontFamily="Arial" HorizontalAlignment="Right"/>
+                        </StackPanel>
+                        <StackPanel Grid.Row="1" Margin="200 20 -107.05 0">
+                            <TextBox x:Name="LastName" Background="Transparent" BorderBrush="#FFCDE4F9" Margin="0,0,137,0"/>
+                        </StackPanel>
+
+                        <StackPanel Grid.Row="2" Margin="30 0">
+                            <TextBlock Text="Email" FontFamily="Arial"/>
+                            <TextBox x:Name="Email" Background="Transparent" BorderBrush="#FFCDE4F9"/>
+                        </StackPanel>
+                        <StackPanel Grid.Row="3" Margin="30 0">
+                            <TextBlock Text="Phone" FontFamily="Arial"/>
+                            <TextBox x:Name="Phone" Background="Transparent" BorderBrush="#FFCDE4F9"/>
+                        </StackPanel>
+                        <StackPanel x:Name="Password" Grid.Row="3" Margin="30,39.8,30,21.6" Grid.RowSpan="4">
+                            <TextBlock Text="Password" FontFamily="Arial" Margin="0,0,-0.4,0"/>
+                            <PasswordBox x:Name="PasswordBox" BorderBrush="#FFCDE4F9" Background="Transparent" FontFamily="Arial"/>
+                            <TextBox x:Name="passwordTxtBox" Visibility="Collapsed" FontFamily="Arial"/>
+                            <CheckBox x:Name="Check_Password" Content="Show Password"
                           Unchecked="ShowPassword_Unchecked"  Checked="ShowPassword_Checked" IsChecked="False" Height="14" FontFamily="Arial"/>
-            </StackPanel>
-            <Button x:Name="Payment" Grid.Row="4" Content="Payment" VerticalAlignment="Top" Padding="0 10" Margin="30,64.8,30,0" Background="Transparent" Grid.RowSpan="2" FontFamily="Arial"/>
-            <Button x:Name="Back" Grid.Row="5" Content="Back" VerticalAlignment="Top" Padding="0 10" Margin="30,37.6,30,0" Background="Transparent" Click="Back_Click" Grid.RowSpan="2" FontFamily="Arial"/>
-        </Grid>
+                        </StackPanel>
+                        <Button x:Name="Payment" Grid.Row="4" Content="Payment" VerticalAlignment="Top" Padding="0 10" Margin="30,64.8,30,0" Background="Transparent" Grid.RowSpan="2" FontFamily="Arial" Click="Payment_Click"/>
+                        <Button x:Name="Back" Grid.Row="5" Content="Back" VerticalAlignment="Top" Padding="0 10" Margin="30,37.6,30,0" Background="Transparent" Click="BackLogin_Click" Grid.RowSpan="2" FontFamily="Arial"/>
+                    </Grid>
+                </Grid>
+            </TabItem>
+
+            <TabItem x:Name="Tab2"  Visibility="Hidden">
+                <Grid>
+                    <Grid.Background>
+                        <ImageBrush/>
+                    </Grid.Background>
+                    <Grid Margin="0,0,-0.4,-0.4">
+                        <Grid.Background>
+                            <ImageBrush ImageSource="Background.png"/>
+                        </Grid.Background>
+ 
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="1.5*"/>
+                            <RowDefinition Height="0.8*"/>
+                            <RowDefinition Height="0.5*"/>
+                            <RowDefinition Height="0.3*"/>
+                            <RowDefinition Height="0.5*"/>
+                            <RowDefinition/>
+                            <RowDefinition Height="0.5*"/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+
+                        <StackPanel Grid.Row="1" Margin="30 0">
+                            <TextBlock Text="Cost" FontWeight="Bold" FontFamily="Arial"/>
+                            <TextBox Background="Transparent" BorderBrush="#FFCDE4F9" IsEnabled="False" FontWeight="Bold"/>
+                        </StackPanel>
+                        <StackPanel Grid.Row="2" Margin="30 0">
+                            <TextBlock Text="Credit Card Details" FontWeight="Bold" FontFamily="Arial"/>
+                        </StackPanel>
+                        <StackPanel Grid.Row="3" Margin="30 0">
+                            <TextBlock Text="CARD HOLDER" FontFamily="Arial" FontSize="10"/>
+                        </StackPanel>
+                        <StackPanel Grid.Row="4" Margin="30 0">
+                            <TextBox x:Name="CardHolder" Background="Transparent" BorderBrush="#FFCDE4F9" IsEnabled="False" Margin="0,0,137,0"/>
+                        </StackPanel>
+                        
+                        <StackPanel Grid.Row="3" Margin="65 0" HorizontalAlignment="Right">
+                            <TextBlock Text="EXPIRATION DATE" FontFamily="Arial" FontSize="10"/>
+                        </StackPanel>
+                        <StackPanel Grid.Row="4">
+                            <TextBox  Margin="105 0" Background="Transparent" BorderBrush="#FFCDE4F9" Width="50" HorizontalAlignment="Right"/>
+                            <TextBlock Text="/" Margin="0 -15 95 0" FontFamily="Arial" FontSize="15" HorizontalAlignment="Right" Foreground="#FFCDE4F9"/>
+                        </StackPanel>
+                        <StackPanel Grid.Row="4" Margin="40 0">
+                            <TextBox Background="Transparent" BorderBrush="#FFCDE4F9" Width="50" HorizontalAlignment="Right"/>
+                        </StackPanel>
+
+                        <StackPanel Grid.Row="5" Margin="30 0">
+                            <TextBlock Text="CARD NUMBER" FontFamily="Arial" FontSize="10"/>
+                            <TextBox  Background="Transparent" BorderBrush="#FFCDE4F9" Margin="0,10,100,0"/>
+                        </StackPanel>
+                        <StackPanel Grid.Row="5" HorizontalAlignment="Right">
+                            <TextBlock Text="CVC" FontFamily="Arial" FontSize="10" Margin="100 0"/>
+                            <TextBox Width="50"  Background="Transparent" BorderBrush="#FFCDE4F9" Margin="26 10 0 0"/>
+                        </StackPanel>
+
+                        <Button Grid.Row="5" Content="Proceed" VerticalAlignment="Top" Padding="0 10" Margin="30,64.8,30,0" Background="Transparent" Grid.RowSpan="2" FontFamily="Arial"/>
+                        <Button Grid.Row="6" Content="Back" VerticalAlignment="Top" Padding="0 10" Margin="30,37.6,30,0" Background="Transparent" Click="BackPayment_Click" Grid.RowSpan="2" FontFamily="Arial"/>
+                    </Grid>
+                </Grid>
+            </TabItem>
+
+        </TabControl>
     </Grid>
 </Window>
