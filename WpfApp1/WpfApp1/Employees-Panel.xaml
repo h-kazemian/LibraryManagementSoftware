@@ -44,29 +44,109 @@
                                 <ImageBrush ImageSource="Simple Background.jpg"/>
                             </Grid.Background>
                             <Grid.RowDefinitions>
-                                <RowDefinition Height="1.5*"/>
-                                <RowDefinition Height="1.5*"/>
+                                <RowDefinition Height="3*"/>
                                 <RowDefinition Height="0.5*"/>
                                 <RowDefinition Height="0.5*"/>
                                 <RowDefinition Height="0.5*"/>
                                 <RowDefinition Height="0.5*"/>
                                 <RowDefinition/>
                             </Grid.RowDefinitions>
-                            <TextBlock Text="Employees" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="0"
-                                       FontSize="40" FontFamily="Arial" Foreground="#FFA58B8B">
-                                <TextBlock.Background>
-                                    <ImageBrush/>
-                                </TextBlock.Background>
-                            </TextBlock>
-                            <TextBlock Text="Books" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="1"
-                                       Margin="0 -100 0 0" FontSize="40" FontFamily="Arial" Foreground="#FFA58B8B"/>
-                            <Button x:Name="WholeBooks" Grid.Row="2" Content="Whole Books" VerticalAlignment="Top" Padding="0 10" Margin="70,-40,100,0" Grid.RowSpan="2" FontFamily="Arial" Background="#FFEEE9E9" Click="WholeBooks_Click"/>
-                            <Button x:Name="LoanedBooks" Grid.Row="3" Content="Loaned books" VerticalAlignment="Top" Padding="0 10" Margin="70,-40,100,0" Grid.RowSpan="2" FontFamily="Arial" Background="#FFEEE9E9" Click="LoanedBooks_Click"/>
-                            <Button x:Name="AvailableBooks" Grid.Row="4" Content="Available books" VerticalAlignment="Top" Padding="0 10" Margin="70,-40,100,0" Grid.RowSpan="2" FontFamily="Arial" Background="#FFEEE9E9" Click="AvailableBooks_Click"/>
-                            <Button x:Name="back" Grid.Row="5" Content="Back" VerticalAlignment="Top" Padding="0 10" Margin="70,-40,100,0"  Grid.RowSpan="2" FontFamily="Arial" Background="#FFEEE9E9" Click="Back_Click"/>
+                            <TextBlock Text="Books" HorizontalAlignment="Center" Grid.Row="0"  Margin="-15 90 0 0" FontSize="60" FontFamily="Arial" Foreground="#FFA58B8B"/>
+                            <Button x:Name="WholeBooks" Grid.Row="1" Content="Whole Books" VerticalAlignment="Top" Padding="0 10" Margin="70,-40,100,0" Grid.RowSpan="2" FontFamily="Arial" Background="#FFEEE9E9" Click="WholeBooks_Click"/>
+                            <Button x:Name="LoanedBooks" Grid.Row="2" Content="Loaned books" VerticalAlignment="Top" Padding="0 10" Margin="70,-40,100,0" Grid.RowSpan="2" FontFamily="Arial" Background="#FFEEE9E9" Click="LoanedBooks_Click"/>
+                            <Button x:Name="AvailableBooks" Grid.Row="3" Content="Available books" VerticalAlignment="Top" Padding="0 10" Margin="70,-40,100,0" Grid.RowSpan="2" FontFamily="Arial" Background="#FFEEE9E9" Click="AvailableBooks_Click"/>
+                            <Button Grid.Row="4" Content="Back" VerticalAlignment="Top" Padding="0 10" Margin="70,-40,100,0"  Grid.RowSpan="2" FontFamily="Arial" Background="#FFEEE9E9" Click="Back_Click"/>
                         </Grid>
                     </Grid>
                 </TabItem>
+
+                <TabItem x:Name="MembersTab"  Visibility="Hidden">
+                    <Grid>
+                        <Grid Margin="0,0,-0.4,-0.4">
+                            <Grid.Background>
+                                <ImageBrush ImageSource="Simple Background.jpg"/>
+                            </Grid.Background>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="3*"/>
+                                <RowDefinition Height="0.7*"/>
+                                <RowDefinition Height="0.7*"/>
+                                <RowDefinition Height="0.6*"/>
+                                <RowDefinition/>
+                                <RowDefinition Height="0.6*"/>
+                                <RowDefinition Height="0.7*"/>
+                                <RowDefinition Height="2*"/>
+                            </Grid.RowDefinitions>
+                            <TextBlock Text="Members" HorizontalAlignment="Center" Grid.Row="0"  Margin="-25 50 0 0" FontSize="50" FontFamily="Arial" Foreground="#FFA58B8B"/>
+                            <Button x:Name="WholeMembers" Grid.Row="1" Content="Whole Members" VerticalAlignment="Top" Padding="0 10" Margin="70,-40,100,0" Grid.RowSpan="2" FontFamily="Arial" Background="#FFEEE9E9" Click="WholeMembers_Click"/>
+                            <Button x:Name="DelayDays" Grid.Row="2" Content="Delay days" VerticalAlignment="Top" Padding="0 10" Margin="70,-40,100,0" Grid.RowSpan="2" FontFamily="Arial" Background="#FFEEE9E9" Click="DelayDays_Click"/>
+                            <Button x:Name="DeliveryDelayPayment" Grid.Row="3" Content="Delivery delay payment" VerticalAlignment="Top" Padding="0 10" Margin="70,-40,100,0" Grid.RowSpan="2" FontFamily="Arial" Background="#FFEEE9E9" Click="DeliveryDelayPayment_Click"/>
+                            <StackPanel Grid.Row="4">
+                                <TextBlock Text="Name" Margin="70 -20 30 0" FontFamily="Arial"/>
+                                <TextBox x:Name="Name" Margin="70 0 100 0" BorderBrush="#FFA58B8B"/>
+                            </StackPanel>
+                            <Button Grid.Row="5" Content="Show Info" VerticalAlignment="Top" Padding="0 10" Margin="70,-20,100,0"  Grid.RowSpan="2" FontFamily="Arial" Background="#FFEEE9E9"/>
+                            <Button Grid.Row="6" Content="Back" VerticalAlignment="Top" Padding="0 10" Margin="70,-12,100,0"  Grid.RowSpan="2" FontFamily="Arial" Background="#FFEEE9E9" Click="Back_Click"/>
+                        </Grid>
+                    </Grid>
+                </TabItem>
+
+                <TabItem x:Name="MemberInfoTab"  Visibility="Hidden">
+                    <Grid>
+                        <Grid.Background>
+                            <ImageBrush ImageSource="Background.png"/>
+                        </Grid.Background>
+                        <Grid Margin="0,0,-0.4,-0.4">
+                            <Grid.Background>
+                                <ImageBrush/>
+                            </Grid.Background>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="2*"/>
+                                <RowDefinition Height="0.5*"/>
+                                <RowDefinition Height="0.5*"/>
+                                <RowDefinition Height="0.5*"/>
+                                <RowDefinition/>
+                                <RowDefinition Height="0.7*"/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+
+                            <StackPanel Grid.Row = "0">
+                                <WrapPanel Margin="10" HorizontalAlignment="Center">
+                                    <Image Name="Photo">
+                                        <Image.Clip>
+                                            <EllipseGeometry RadiusX="60" RadiusY="60" Center="185 60"/>
+                                        </Image.Clip>
+                                    </Image>
+                                </WrapPanel>
+                            </StackPanel>
+
+                            <StackPanel Grid.Row="1" Margin="30 0">
+                                <TextBlock Text="First Name" FontFamily="Arial"/>
+                            </StackPanel>
+                            <StackPanel Grid.Row="1" Margin="30 20 70 0">
+                                <TextBox x:Name="FirstName" IsEnabled="False" Background="Transparent" BorderBrush="#FFCDE4F9" Margin="0,0,137,0"/>
+                            </StackPanel>
+                            <StackPanel Grid.Row="1" Margin="130 0">
+                                <TextBlock Text="Last Name" FontFamily="Arial" HorizontalAlignment="Right"/>
+                            </StackPanel>
+                            <StackPanel Grid.Row="1" Margin="200 20 -107.05 0">
+                                <TextBox x:Name="LastName"  IsEnabled="False" Background="Transparent" BorderBrush="#FFCDE4F9" Margin="0,0,137,0"/>
+                            </StackPanel>
+
+                            <StackPanel Grid.Row="2" Margin="30 0">
+                                <TextBlock Text="Email" FontFamily="Arial"/>
+                                <TextBox x:Name="Email" IsEnabled="False"  Background="Transparent" BorderBrush="#FFCDE4F9"/>
+                            </StackPanel>
+                            <StackPanel Grid.Row="3" Margin="30 0">
+                                <TextBlock Text="Phone" FontFamily="Arial"/>
+                                <TextBox x:Name="Phone" IsEnabled="False"  Background="Transparent" BorderBrush="#FFCDE4F9"/>
+                            </StackPanel>
+
+                            <Button x:Name="Payment" Grid.Row="4" Content="" VerticalAlignment="Top" Padding="0 10" Margin="30,64.8,30,0" Background="Transparent" Grid.RowSpan="2" FontFamily="Arial"/>
+                            <Button x:Name="Back" Grid.Row="5" Content="Back" VerticalAlignment="Top" Padding="0 10" Margin="30,37.6,30,0" Background="Transparent" Grid.RowSpan="2" FontFamily="Arial"/>
+                        </Grid>
+                    </Grid>
+                </TabItem>
+
             </TabControl>
         </Grid>
     </Grid>

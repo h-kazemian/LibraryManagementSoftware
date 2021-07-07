@@ -28,7 +28,7 @@ namespace WpfApp1
         //Members
         private void Members_Click(object sender, RoutedEventArgs e)
         {
-
+            MembersTab.IsSelected = true;
         }
         private void WholeMembers_Click(object sender, RoutedEventArgs e)
         {
@@ -50,7 +50,7 @@ namespace WpfApp1
         //EditInformation
         private void EditInformation_Click(object sender, RoutedEventArgs e)
         {
-
+            
         }
 
         //Back
@@ -61,9 +61,9 @@ namespace WpfApp1
         //Exit
         private void Exit_Click(object sender, RoutedEventArgs e)
         {
-            //MainWindow main = new MainWindow();
-            //main.Show();
-            //this.Close();
+            MainWindow main = new MainWindow();
+            main.Show();
+            this.Close();
         }
     }
 }

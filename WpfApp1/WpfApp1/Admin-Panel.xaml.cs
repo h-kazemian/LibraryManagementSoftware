@@ -68,12 +68,17 @@ namespace WpfApp1
             membership.Show();
             this.Close();
         }
+        //Back
+        private void Back_Click(object sender, RoutedEventArgs e)
+        {
+            MenuTab.IsSelected = true;
+        }
         //Exit
         private void Exit_Click(object sender, RoutedEventArgs e)
         {
-            //MainWindow main = new MainWindow();
-            //main.Show();
-            //this.Close();
+            MainWindow main = new MainWindow();
+            main.Show();
+            this.Close();
         }
     }
 }
