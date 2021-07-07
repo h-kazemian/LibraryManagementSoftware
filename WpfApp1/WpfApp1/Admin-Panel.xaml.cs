@@ -19,7 +19,6 @@ namespace WpfApp1
         public Admin_Panel()
         {
             InitializeComponent();
-            AddBookTab.IsSelected = true;
         }
 
         //private void btnEmployees_Click(object sender, RoutedEventArgs e)

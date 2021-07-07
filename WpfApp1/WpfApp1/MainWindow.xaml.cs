@@ -7,12 +7,7 @@ namespace WpfApp1
     {
         public MainWindow()
         {
-            InitializeComponent();
-            Admin_Panel a = new Admin_Panel();
-            a.Show();
-            
-            this.Close();
-            
+            InitializeComponent();     
         }
         private void Request(object sender, RoutedEventArgs e)
         {
