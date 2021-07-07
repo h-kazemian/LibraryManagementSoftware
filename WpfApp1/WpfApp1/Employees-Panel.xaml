@@ -60,10 +60,10 @@
                             </TextBlock>
                             <TextBlock Text="Books" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="1"
                                        Margin="0 -100 0 0" FontSize="40" FontFamily="Arial" Foreground="#FFA58B8B"/>
-                            <Button x:Name="WholeBooks" Grid.Row="2" Content="Whole Books" VerticalAlignment="Top" Padding="0 10" Margin="70,-40,100,0" Grid.RowSpan="2" FontFamily="Arial" Background="#FFEEE9E9"/>
-                            <Button x:Name="SubmitBuook" Grid.Row="3" Content="Submit" VerticalAlignment="Top" Padding="0 10" Margin="70,-40,100,0" Grid.RowSpan="2" FontFamily="Arial" Background="#FFEEE9E9"/>
-                            <Button x:Name="SubmitBook" Grid.Row="4" Content="Submit" VerticalAlignment="Top" Padding="0 10" Margin="70,-40,100,0" Grid.RowSpan="2" FontFamily="Arial" Background="#FFEEE9E9"/>
-                            <Button x:Name="back" Grid.Row="5" Content="Back" VerticalAlignment="Top" Padding="0 10" Margin="70,-40,100,0"  Grid.RowSpan="2" FontFamily="Arial" Background="#FFEEE9E9"/>
+                            <Button x:Name="WholeBooks" Grid.Row="2" Content="Whole Books" VerticalAlignment="Top" Padding="0 10" Margin="70,-40,100,0" Grid.RowSpan="2" FontFamily="Arial" Background="#FFEEE9E9" Click="WholeBooks_Click"/>
+                            <Button x:Name="LoanedBooks" Grid.Row="3" Content="Loaned books" VerticalAlignment="Top" Padding="0 10" Margin="70,-40,100,0" Grid.RowSpan="2" FontFamily="Arial" Background="#FFEEE9E9" Click="LoanedBooks_Click"/>
+                            <Button x:Name="AvailableBooks" Grid.Row="4" Content="Available books" VerticalAlignment="Top" Padding="0 10" Margin="70,-40,100,0" Grid.RowSpan="2" FontFamily="Arial" Background="#FFEEE9E9" Click="AvailableBooks_Click"/>
+                            <Button x:Name="back" Grid.Row="5" Content="Back" VerticalAlignment="Top" Padding="0 10" Margin="70,-40,100,0"  Grid.RowSpan="2" FontFamily="Arial" Background="#FFEEE9E9" Click="Back_Click"/>
                         </Grid>
                     </Grid>
                 </TabItem>

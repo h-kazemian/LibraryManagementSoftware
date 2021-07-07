@@ -8,6 +8,14 @@ namespace WpfApp1
         public MainWindow()
         {
             InitializeComponent();
+            Admin_Panel e = new Admin_Panel();
+            e.Show();
+            this.Close();
+        }
+        //Login
+        private void Login_Click(object sender, RoutedEventArgs e)
+        {
+
         }
         private void Request(object sender, RoutedEventArgs e)
         {

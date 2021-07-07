@@ -39,7 +39,7 @@
                     </CheckBox.Background>
                 </CheckBox>
             </StackPanel>
-            <Button x:Name="Login" Grid.Row="3" Content="Login" VerticalAlignment="Top" Padding="0 10" Margin="30,0.8,165,0" Grid.RowSpan="2" FontFamily="Arial" Background="Transparent"/>
+            <Button x:Name="Login" Grid.Row="3" Content="Login" VerticalAlignment="Top" Padding="0 10" Margin="30,0.8,165,0" Grid.RowSpan="2" FontFamily="Arial" Background="Transparent" Click="Login_Click"/>
 
             <TextBlock Grid.Row="4" Margin="30,35.6,165,-23.4" HorizontalAlignment="Center" FontFamily="Arial" Width="199">
                 <Run Text="  Not registered? "/>
