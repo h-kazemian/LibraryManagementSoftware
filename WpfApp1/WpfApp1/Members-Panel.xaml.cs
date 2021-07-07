@@ -1,16 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+﻿using System.Windows;
 
 namespace WpfApp1
 {
@@ -19,6 +7,30 @@ namespace WpfApp1
         public Members_Panel()
         {
             InitializeComponent();
+        }
+        private void Books_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+        private void MyBooks_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+        private void Subscription_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+        private void Wallet_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+        private void EditInformation_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+        private void Exit_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

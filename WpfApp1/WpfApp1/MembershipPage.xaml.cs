@@ -13,6 +13,14 @@ namespace WpfApp1
         public MembershipPage()
         {
             InitializeComponent();
+            if (Admin_Panel.IsPayment == true)
+            {
+                PaymentTab.IsSelected = true;
+                Admin_Panel.IsPayment = false;
+                CardHolder.Text = "Admin";
+                Cost.Text = "$" + Admin_Panel.Money;
+                BackPayment.IsEnabled = false;
+            }
         }
         private void LoadPicture_Click(object sender, RoutedEventArgs e)
         {
@@ -30,8 +38,6 @@ namespace WpfApp1
         {
             RegisterTab.IsSelected = true;
         }
-
- 
         private void ShowPassword_Checked(object sender, RoutedEventArgs e)
         {
             passwordTxtBox.Text = PasswordBox.Password;
@@ -56,7 +62,5 @@ namespace WpfApp1
             window.Show();
             this.Close();
         }
-
-  
     }
 }

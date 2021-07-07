@@ -101,7 +101,7 @@
 
                         <StackPanel Grid.Row="1" Margin="30 0">
                             <TextBlock Text="Cost" FontWeight="Bold" FontFamily="Arial"/>
-                            <TextBox Background="Transparent" BorderBrush="#FFCDE4F9" IsEnabled="False" FontWeight="Bold"/>
+                            <TextBox x:Name="Cost" Background="Transparent" BorderBrush="#FFCDE4F9" IsEnabled="False" FontWeight="Bold"/>
                         </StackPanel>
                         <StackPanel Grid.Row="2" Margin="30 0">
                             <TextBlock Text="Credit Card Details" FontWeight="Bold" FontFamily="Arial"/>
@@ -134,7 +134,7 @@
                         </StackPanel>
 
                         <Button Grid.Row="5" Content="Proceed" VerticalAlignment="Top" Padding="0 10" Margin="30,64.8,30,0" Background="Transparent" Grid.RowSpan="2" FontFamily="Arial"/>
-                        <Button Grid.Row="6" Content="Back" VerticalAlignment="Top" Padding="0 10" Margin="30,37.6,30,0" Background="Transparent" Click="BackPayment_Click" Grid.RowSpan="2" FontFamily="Arial"/>
+                        <Button x:Name="BackPayment" IsEnabled="True" Grid.Row="6" Content="Back" VerticalAlignment="Top" Padding="0 10" Margin="30,37.6,30,0" Background="Transparent" Click="BackPayment_Click" Grid.RowSpan="2" FontFamily="Arial"/>
                     </Grid>
                 </Grid>
             </TabItem>

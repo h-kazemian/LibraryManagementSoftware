@@ -1,70 +1,54 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+﻿using System.Windows;
+using System.Collections.ObjectModel;
 
 namespace WpfApp1
 {
     public partial class Admin_Panel : Window
     {
+        //   public ObservableCollection<Employees_Panel> Employees { get; set; }
+        public static bool IsPayment = false;
+        //The amount the admin wants to pay
+        public static string Money;
         public Admin_Panel()
         {
             InitializeComponent();
+      
         }
+        private void Employees_Click(object sender, RoutedEventArgs e)
+        {
+            EmployeesTab.IsSelected = true;
 
-        //private void btnEmployees_Click(object sender, RoutedEventArgs e)
-        //{
-        //    EmploeePanel.Visibility = Visibility.Visible;
-        //    BooksPanel.Visibility = Visibility.Collapsed;
-        //    MeneyBankPanel.Visibility = Visibility.Collapsed;
-        //}
-
-        //private void btnBooks_Click(object sender, RoutedEventArgs e)
-        //{
-        //    EmploeePanel.Visibility = Visibility.Collapsed;
-        //    BooksPanel.Visibility = Visibility.Visible;
-        //    MeneyBankPanel.Visibility = Visibility.Collapsed;
-        //}
-
-        //private void btnMoneyBank_Click(object sender, RoutedEventArgs e)
-        //{
-        //    EmploeePanel.Visibility = Visibility.Collapsed;
-        //    BooksPanel.Visibility = Visibility.Collapsed;
-        //    MeneyBankPanel.Visibility = Visibility.Visible;
-        //}
-
-        private void btnAddBook_Click(object sender, RoutedEventArgs e)
+        }
+        private void Books_Click(object sender, RoutedEventArgs e)
+        {
+            BooksTab.IsSelected = true;
+        }
+        private void MoneyBank_Click(object sender, RoutedEventArgs e)
+        {
+            MoneyBankTab.IsSelected = true;
+        }
+        private void Exit_Click(object sender, RoutedEventArgs e)
         {
 
         }
-
-        private void btnAddEmploee_Click(object sender, RoutedEventArgs e)
+        //Employees
+        private void AddEmployee_Click(object sender, RoutedEventArgs e)
         {
 
         }
-
-        private void btnEliminateEmployee_Click(object sender, RoutedEventArgs e)
+        //Books
+        private void AddBook_Click(object sender, RoutedEventArgs e)
         {
-
+            AddBookTab.IsSelected = true;
         }
-
-        private void btnDeposit_Click(object sender, RoutedEventArgs e)
+        //Money Bank
+        private void Payment_Click(object sender, RoutedEventArgs e)
         {
-
-        }
-
-        private void Border_ImageFailed(object sender, ExceptionRoutedEventArgs e)
-        {
-
+            IsPayment = true;
+            Money = Cost.Text;
+            MembershipPage membership = new MembershipPage();
+            membership.Show();
+            this.Close();
         }
     }
 }

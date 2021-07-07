@@ -29,13 +29,13 @@
                                 <RowDefinition Height="0.8*"/>
                                 <RowDefinition/>
                             </Grid.RowDefinitions>
-                            <TextBlock Text="Members" HorizontalAlignment="Center" Grid.Row="0" FontSize="40" Margin="39,75,172,42.2" FontFamily="Arial" Foreground="#FF536C6F" Background="Transparent"/>
-                            <Button x:Name="MBooks" Grid.Row="1" Content="Books" VerticalAlignment="Top" Padding="0 10" Margin="30,0.8,165,0" Grid.RowSpan="2" FontFamily="Arial" Background="Transparent"/>
-                            <Button x:Name="MMyBooks" Grid.Row="2" Content="My Books" VerticalAlignment="Top" Padding="0 10" Margin="30,0.8,165,0" Grid.RowSpan="2" FontFamily="Arial" Background="Transparent"/>
-                            <Button x:Name="MSubscription" Grid.Row="3" Content="Subscription" VerticalAlignment="Top" Padding="0 10" Margin="30,0.8,165,0" Grid.RowSpan="2" FontFamily="Arial" Background="Transparent"/>
-                            <Button x:Name="MWallet" Grid.Row="4" Content="Wallet" VerticalAlignment="Top" Padding="0 10" Margin="30,0.8,165,0" Grid.RowSpan="2" FontFamily="Arial" Background="Transparent"/>
-                            <Button x:Name="MEditInformation" Grid.Row="5" Content="Edit information" VerticalAlignment="Top" Padding="0 10" Margin="30,0.8,165,0" Grid.RowSpan="2" FontFamily="Arial" Background="Transparent"/>
-                            <Button x:Name="MExit" Grid.Row="6" Content="Exit" VerticalAlignment="Top" Padding="0 10" Margin="30,0.8,165,0" Grid.RowSpan="2" FontFamily="Arial" Background="Transparent"/>
+                            <TextBlock Text="Members" HorizontalAlignment="Center" Grid.Row="0" FontSize="40" Margin="39,75,172,42.2" FontFamily="Arial" Foreground="#FF536C6F" Background="Transparent" />
+                            <Button x:Name="MBooks" Grid.Row="1" Content="Books" VerticalAlignment="Top" Padding="0 10" Margin="30,0.8,165,0" Grid.RowSpan="2" FontFamily="Arial" Background="Transparent" Click="Books_Click"/>
+                            <Button x:Name="MyBooks" Grid.Row="2" Content="My Books" VerticalAlignment="Top" Padding="0 10" Margin="30,0.8,165,0" Grid.RowSpan="2" FontFamily="Arial" Background="Transparent" Click="MyBooks_Click"/>
+                            <Button x:Name="Subscription" Grid.Row="3" Content="Subscription" VerticalAlignment="Top" Padding="0 10" Margin="30,0.8,165,0" Grid.RowSpan="2" FontFamily="Arial" Background="Transparent" Click="Subscription_Click"/>
+                            <Button x:Name="MWallet" Grid.Row="4" Content="Wallet" VerticalAlignment="Top" Padding="0 10" Margin="30,0.8,165,0" Grid.RowSpan="2" FontFamily="Arial" Background="Transparent" Click="Wallet_Click"/>
+                            <Button x:Name="MEditInformation" Grid.Row="5" Content="Edit information" VerticalAlignment="Top" Padding="0 10" Margin="30,0.8,165,0" Grid.RowSpan="2" FontFamily="Arial" Background="Transparent" Click="EditInformation_Click"/>
+                            <Button x:Name="MExit" Grid.Row="6" Content="Exit" VerticalAlignment="Top" Padding="0 10" Margin="30,0.8,165,0" Grid.RowSpan="2" FontFamily="Arial" Background="Transparent" Click="Exit_Click"/>
                         </Grid>
                     </Grid>
                 </TabItem>
