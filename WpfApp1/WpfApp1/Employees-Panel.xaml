@@ -5,39 +5,40 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp1"
         mc:Ignorable="d"
-        Title="Admin_Panel" Height="700" Width="1200">
+        Title="Employees-Panel" Height="500" Width="400" WindowStyle="None" WindowStartupLocation="CenterScreen" RenderTransformOrigin="0.5,0.5" VerticalAlignment="Top">
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="auto"/>
-            <ColumnDefinition Width="*"/>
-        </Grid.ColumnDefinitions>
-        <Border Grid.Column="0" Margin="2" Background="Beige"  Width="250" HorizontalAlignment="Center" BorderThickness="2" BorderBrush="Gray">
-            <StackPanel>
-                <Button Margin="15,50" Background="Bisque" Height="50" Foreground="Black" FontSize="22" Name="btnBooks" Click="btnBooks_Click">Books</Button>
-                <Button Margin="15,50" Background="Bisque" Height="50" Foreground="Black" FontSize="22" Name="btnMembers" Click="btnMembers_Click">Members</Button>
-                <Button Margin="15,50" Background="Bisque" Height="50" Foreground="Black" FontSize="22" Name="btnWallet" Click="btnWallet_Click">Wallet</Button>
-                <Button Margin="15,50" Background="Bisque" Height="50" Foreground="Black" FontSize="22" Name="btnEditinformation" Click="btnEditinformation_Click">Edit information</Button>
+        <Grid>
+            <TabControl Margin="0,-13,-0.4,-0.4" HorizontalAlignment="Center" VerticalContentAlignment="Center" Height="550" Width="400">
+                <TabItem x:Name="MenuTab"  Visibility="Hidden">
+                    <Grid>
+                        <Grid.Background>
+                            <ImageBrush ImageSource="Admin-Panel.jpg"/>
+                        </Grid.Background>
 
-            </StackPanel>
+                        <Grid Margin="0,0,-0.4,-0.4">
+                            <Grid.Background>
+                                <ImageBrush/>
+                            </Grid.Background>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="0.5*"/>
+                                <RowDefinition Height="0.5*"/>
+                                <RowDefinition Height="0.5*"/>
+                                <RowDefinition Height="0.5*"/>
+                                <RowDefinition Height="0.8*"/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <TextBlock Text="Employee" HorizontalAlignment="Center" Grid.Row="0" FontSize="40" Margin="39,75,172,42.2" FontFamily="Arial" Foreground="#FF536C6F" Background="Transparent"/>
+                            <Button x:Name="Books" Grid.Row="1" Content="Books" VerticalAlignment="Top" Padding="0 10" Margin="30,0.8,165,0" Grid.RowSpan="2" FontFamily="Arial" Background="Transparent"/>
+                            <Button x:Name="Members" Grid.Row="2" Content="Members" VerticalAlignment="Top" Padding="0 10" Margin="30,0.8,165,0" Grid.RowSpan="2" FontFamily="Arial" Background="Transparent"/>
+                            <Button x:Name="Wallet" Grid.Row="3" Content="Wallet" VerticalAlignment="Top" Padding="0 10" Margin="30,0.8,165,0" Grid.RowSpan="2" FontFamily="Arial" Background="Transparent"/>
+                            <Button x:Name="EditInformation" Grid.Row="4" Content="Edit information" VerticalAlignment="Top" Padding="0 10" Margin="30,0.8,165,0" Grid.RowSpan="2" FontFamily="Arial" Background="Transparent"/>
+                            <Button x:Name="Exit" Grid.Row="5" Content="Exit" VerticalAlignment="Top" Padding="0 10" Margin="30,0.8,165,0" Grid.RowSpan="2" FontFamily="Arial" Background="Transparent"/>
+                        </Grid>
+                    </Grid>
+                </TabItem>
 
-
-        </Border>
-        <Border Visibility="Collapsed" Grid.Column="1" Margin="2" Background="WhiteSmoke" HorizontalAlignment="Stretch" Name="BooksPanel"  BorderThickness="2" BorderBrush="Gray">
-            <DockPanel>
-                <Button Margin="200,500,50,50" Background="Bisque" Height="30" Name="btnAllBooks" Width="150" Click="btnAllBooks_Click" >All Books</Button>
-                <Button Margin="50,500,0,50" Background="Bisque" Name="btnBorrowedBooks" Width="150" Height="30" Click="btnBorrowedBooks_Click">Borrowed Books</Button>
-                <Button Margin="50,500,50,50" Background="Bisque" Name="btnAvailableBooks" Width="150" Height="30" Click="btnAvailableBooks_Click">Available Books</Button>
-            </DockPanel>
-        </Border>
-        <Border Visibility="Collapsed" Grid.Column="1" Margin="2" Background="WhiteSmoke" HorizontalAlignment="Stretch" Name="MembersOption"  BorderThickness="2" BorderBrush="Gray">
-            <DockPanel>
-                <Button Margin="15,500,20,50" Background="Bisque" Height="30" Name="btnAllMembers" Width="260" Click="btnAllMembers_Click" >All Members</Button>
-                <Button Margin="15,500,20,50" Background="Bisque" Name="btnDeleyBooks" Width="260" Height="30" Click="btnDeleydBooks_Click">Delayed members(for returning book)</Button>
-                <Button Margin="15,500,20,50" Background="Bisque" Name="btnDeleyPay" Width="260" Height="30" Click="btnDeleyPay_Click">Delayed members(for pay monthly subscription)</Button>
-            </DockPanel>
-        </Border>
-
-
-
+            </TabControl>
+        </Grid>
     </Grid>
 </Window>

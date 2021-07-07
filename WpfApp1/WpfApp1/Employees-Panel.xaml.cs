@@ -23,16 +23,16 @@ namespace WpfApp1
         {
             InitializeComponent();
         }
-        private void btnBooks_Click(object sender, RoutedEventArgs e)
-        {
-            BooksPanel.Visibility = Visibility.Visible;
-            MembersOption.Visibility = Visibility.Collapsed;
-        }
-        private void btnMembers_Click(object sender, RoutedEventArgs e)
-        {
-            BooksPanel.Visibility = Visibility.Collapsed;
-            MembersOption.Visibility = Visibility.Visible;
-        }
+        //private void btnBooks_Click(object sender, RoutedEventArgs e)
+        //{
+        //    BooksPanel.Visibility = Visibility.Visible;
+        //    MembersOption.Visibility = Visibility.Collapsed;
+        //}
+        //private void btnMembers_Click(object sender, RoutedEventArgs e)
+        //{
+        //    BooksPanel.Visibility = Visibility.Collapsed;
+        //    MembersOption.Visibility = Visibility.Visible;
+        //}
         private void btnWallet_Click(object sender, RoutedEventArgs e)
         {
 

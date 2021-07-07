@@ -7,7 +7,7 @@ namespace WpfApp1
     {
         public MainWindow()
         {
-            InitializeComponent();     
+            InitializeComponent();
         }
         private void Request(object sender, RoutedEventArgs e)
         {
