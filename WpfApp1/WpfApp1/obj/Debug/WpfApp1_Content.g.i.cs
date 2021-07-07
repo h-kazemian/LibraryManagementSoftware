@@ -8,6 +8,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("cameralogo.jfif")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("simple%20background.jpg")]
 
 

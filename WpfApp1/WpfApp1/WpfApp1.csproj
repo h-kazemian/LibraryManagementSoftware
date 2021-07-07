@@ -113,7 +113,12 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Background.png" />
-    <Content Include="CameraLogo.jfif" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Admin-Panel.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Simple Background.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

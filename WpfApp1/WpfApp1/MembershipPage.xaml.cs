@@ -28,7 +28,7 @@ namespace WpfApp1
         }
         private void BackPayment_Click(object sender, RoutedEventArgs e)
         {
-            Tab1.IsSelected = true;
+            RegisterTab.IsSelected = true;
         }
 
  
@@ -46,7 +46,7 @@ namespace WpfApp1
         }
         private void Payment_Click(object sender, RoutedEventArgs e)
         {
-            Tab2.IsSelected = true;
+            PaymentTab.IsSelected = true;
           
             CardHolder.Text = FirstName.Text + " " + LastName.Text;
         }

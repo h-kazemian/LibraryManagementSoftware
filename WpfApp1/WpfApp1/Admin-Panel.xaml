@@ -5,41 +5,84 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp1"
         mc:Ignorable="d"
-        Title="Admin_Panel" Height="700" Width="1200">
+        Title="Admin_Panel" Height="500" Width="400" WindowStyle="None" WindowStartupLocation="CenterScreen" RenderTransformOrigin="0.5,0.5" VerticalAlignment="Top">
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="auto"/>
-            <ColumnDefinition Width="*"/>
-        </Grid.ColumnDefinitions>
-        <Border Grid.Column="0" Margin="2" Background="Beige"  Width="250" HorizontalAlignment="Center" BorderThickness="2" BorderBrush="Gray">
-            <StackPanel>
-                <Button Margin="20,30" Background="Bisque" Height="50" Foreground="Black" FontSize="22" Name="btnEmployees" Click="btnEmployees_Click">Employees</Button>
-                <Button Margin="20,150" Background="Bisque" Height="50" Foreground="Black" FontSize="22" Name="btnBooks" Click="btnBooks_Click">Books</Button>
-                <Button Margin="20,60" Background="Bisque" Height="50" Foreground="Black" FontSize="22" Name="btnMoneyBank" Click="btnMoneyBank_Click">Money Bank</Button>
+        <Grid>
+            <TabControl Margin="0,-13,-0.4,-0.4" HorizontalAlignment="Center" VerticalContentAlignment="Center" Height="550" Width="400">
+                <TabItem x:Name="MenuTab"  Visibility="Hidden">
+                    <Grid>
+                        <Grid.Background>
+                            <ImageBrush ImageSource="Admin-Panel.jpg"/>
+                        </Grid.Background>
 
-            </StackPanel>
+                        <Grid Margin="0,0,-0.4,-0.4">
+                            <Grid.Background>
+                                <ImageBrush/>
+                            </Grid.Background>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="0.5*"/>
+                                <RowDefinition Height="0.5*"/>
+                                <RowDefinition Height="0.5*"/>
+                                <RowDefinition Height="0.5*"/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <TextBlock Text="Admin" HorizontalAlignment="Center" Grid.Row="0" FontSize="60" Margin="39,75,172,42.2" FontFamily="Arial" Foreground="#FF536C6F" Background="Transparent"/>
+                            <Button x:Name="Employees" Grid.Row="1" Content="Employees" VerticalAlignment="Top" Padding="0 10" Margin="30,0.8,165,0" Grid.RowSpan="2" FontFamily="Arial" Background="Transparent"/>
+                            <Button x:Name="Books" Grid.Row="2" Content="Books" VerticalAlignment="Top" Padding="0 10" Margin="30,0.8,165,0" Grid.RowSpan="2" FontFamily="Arial" Background="Transparent"/>
+                            <Button x:Name="MoneyBank" Grid.Row="3" Content="Money Bank" VerticalAlignment="Top" Padding="0 10" Margin="30,0.8,165,0" Grid.RowSpan="2" FontFamily="Arial" Background="Transparent"/>
+                            <Button x:Name="Exit" Grid.Row="4" Content="Exit" VerticalAlignment="Top" Padding="0 10" Margin="30,0.8,165,0" Grid.RowSpan="2" FontFamily="Arial" Background="Transparent"/>
+                        </Grid>
+                    </Grid>
+                </TabItem>
 
-        </Border>
-        <Border Visibility="Collapsed" Grid.Column="1" Margin="2" Background="WhiteSmoke" HorizontalAlignment="Stretch" Name="EmploeePanel"  BorderThickness="2" BorderBrush="Gray">
-            <DockPanel>
-                <Button Margin="200,500,50,50" Background="Bisque" Height="30" Name="btnAddEmploee" Width="150" Click="btnAddEmploee_Click" >Add Employee</Button>
-                <Button Margin="50,500,0,50" Background="Bisque" Name="btnEliminateEmployee" Width="150" Height="30" Click="btnEliminateEmployee_Click">Eliminate Employee</Button>
-                <Button Margin="50,500,50,50" Background="Bisque" Name="btnDeposit" Width="150" Height="30" Click="btnDeposit_Click">Deposit of salaries</Button>
-            </DockPanel>
-           
-
-        </Border>
-        <Border Visibility="Collapsed" Grid.Column="1" Margin="2" Background="WhiteSmoke" HorizontalAlignment="Stretch" Name="BooksPanel"  BorderThickness="2" BorderBrush="Gray" >
-            <Button Name="btnAddBook" Height="30" Width="150" Margin="600,550,50,50" Background="Bisque" Click="btnAddBook_Click">Add Book</Button>
-        </Border>
-        <Border Visibility="Collapsed" Grid.Column="1" Margin="2" Background="WhiteSmoke" HorizontalAlignment="Stretch" Name="MeneyBankPanel"  BorderThickness="2" BorderBrush="Gray" >
-            <StackPanel Width="420" Height="200" Grid.Row="3" Margin="30 0">
-                <TextBlock FontSize="30" Text="increase money"/>
-                <TextBox Width="420" Height="30"  x:Name="Phone" Background="White" BorderBrush="LightGreen"/>
-                <Button FontSize="25" FontStyle="Italic" FontWeight="Heavy" Height="50" Width="420" Margin="20" Background="LightGreen">Confirm</Button>
-            </StackPanel>
-        </Border>
-        
-
+                <TabItem x:Name="AddBookTab"  Visibility="Hidden">
+                    <Grid>
+                
+                        <Grid Margin="0,0,-0.4,-0.4">
+                            <Grid.Background>
+                                <ImageBrush ImageSource="Simple Background.jpg"/>
+                            </Grid.Background>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="3*"/>
+                                <RowDefinition Height="0.5*"/>
+                                <RowDefinition Height="0.5*"/>
+                                <RowDefinition Height="0.5*"/>
+                                <RowDefinition Height="0.5*"/>
+                                <RowDefinition Height="0.6*"/>
+                                <RowDefinition Height="0.5*"/>
+                                <RowDefinition Height="0.2*"/>
+                                <RowDefinition Height="0.5*"/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <TextBlock Text="Add book" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="0"
+                                       FontSize="40" FontFamily="Arial" Foreground="#FFA58B8B">
+                                <TextBlock.Background>
+                                    <ImageBrush/>
+                                </TextBlock.Background>
+                            </TextBlock>
+                            <StackPanel Grid.Row="1" Margin="70,-55,70,0" >
+                                <TextBlock Text="Name" FontFamily="Arial" Foreground="#FFA58B8B" FontSize="10"/>
+                                <TextBox x:Name="NameBook" Background="Transparent" BorderBrush="#FFA58B8B"/>
+                            </StackPanel>
+                            <StackPanel Grid.Row="2" Margin="70,-55,70,0">
+                                <TextBlock Text="Writer" FontFamily="Arial" Foreground="#FFA58B8B" FontSize="10"/>
+                                <TextBox x:Name="Writer" Background="Transparent" BorderBrush="#FFA58B8B"/>
+                            </StackPanel>
+                            <StackPanel Grid.Row="3" Margin="70,-55,70,0">
+                                <TextBlock Text="Genre" FontFamily="Arial" Foreground="#FFA58B8B" FontSize="10"/>
+                                <TextBox x:Name="GenreBook" Background="Transparent"  BorderBrush="#FFA58B8B"/>
+                            </StackPanel>
+                            <StackPanel Grid.Row="4" Margin="70,-55,70,0">
+                                <TextBlock Text="Printing Number" FontFamily="Arial" Foreground="#FFA58B8B" FontSize="10"/>
+                                <TextBox x:Name="PrintingNumber" Background="Transparent"  BorderBrush="#FFA58B8B"/>
+                            </StackPanel>
+                            <Button x:Name="SubmitBook" Grid.Row="5" Content="Submit" VerticalAlignment="Top" Padding="0 10" Margin="70,-40,100,0" Grid.RowSpan="2" FontFamily="Arial" Background="#FFEEE9E9"/>
+                            <Button x:Name="back" Grid.Row="6" Content="Back" VerticalAlignment="Top" Padding="0 10" Margin="70,-40,100,0"  Grid.RowSpan="2" FontFamily="Arial" Background="#FFEEE9E9"/>
+                        </Grid>
+                    </Grid>
+                </TabItem>
+            </TabControl>
+        </Grid>
     </Grid>
 </Window>

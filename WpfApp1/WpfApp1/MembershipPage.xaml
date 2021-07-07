@@ -9,8 +9,8 @@
     
     <Grid>
         <TabControl Margin="0,-13,-0.4,-0.4" HorizontalAlignment="Right" Width="394" Foreground="#FF5D3232">
-            
-            <TabItem x:Name="Tab1"  Visibility="Hidden">
+
+            <TabItem x:Name="RegisterTab"  Visibility="Hidden">
                 <Grid>
                     <Grid.Background>
                         <ImageBrush ImageSource="Background.png"/>
@@ -78,7 +78,7 @@
                 </Grid>
             </TabItem>
 
-            <TabItem x:Name="Tab2"  Visibility="Hidden">
+            <TabItem x:Name="PaymentTab"  Visibility="Hidden">
                 <Grid>
                     <Grid.Background>
                         <ImageBrush/>
