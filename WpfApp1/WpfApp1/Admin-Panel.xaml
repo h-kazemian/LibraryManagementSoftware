@@ -1,0 +1,45 @@
+﻿<Window x:Class="WpfApp1.Admin_Panel"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp1"
+        mc:Ignorable="d"
+        Title="Admin_Panel" Height="700" Width="1200">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Border Grid.Column="0" Margin="2" Background="Beige"  Width="250" HorizontalAlignment="Center" BorderThickness="2" BorderBrush="Gray">
+            <StackPanel>
+                <Button Margin="20,30" Background="Bisque" Height="50" Foreground="Black" FontSize="22" Name="btnEmployees" Click="btnEmployees_Click">Employees</Button>
+                <Button Margin="20,150" Background="Bisque" Height="50" Foreground="Black" FontSize="22" Name="btnBooks" Click="btnBooks_Click">Books</Button>
+                <Button Margin="20,60" Background="Bisque" Height="50" Foreground="Black" FontSize="22" Name="btnMoneyBank" Click="btnMoneyBank_Click">Money Bank</Button>
+
+            </StackPanel>
+
+        </Border>
+        <Border Visibility="Collapsed" Grid.Column="1" Margin="2" Background="WhiteSmoke" HorizontalAlignment="Stretch" Name="EmploeePanel"  BorderThickness="2" BorderBrush="Gray">
+            <DockPanel>
+                <Button Margin="200,500,50,50" Background="Bisque" Height="30" Name="btnAddEmploee" Width="150" Click="btnAddEmploee_Click" >Add Employee</Button>
+                <Button Margin="50,500,0,50" Background="Bisque" Name="btnEliminateEmployee" Width="150" Height="30" Click="btnEliminateEmployee_Click">Eliminate Employee</Button>
+                <Button Margin="50,500,50,50" Background="Bisque" Name="btnDeposit" Width="150" Height="30" Click="btnDeposit_Click">Deposit of salaries</Button>
+            </DockPanel>
+           
+
+        </Border>
+        <Border Visibility="Collapsed" Grid.Column="1" Margin="2" Background="WhiteSmoke" HorizontalAlignment="Stretch" Name="BooksPanel"  BorderThickness="2" BorderBrush="Gray" >
+            <Button Name="btnAddBook" Height="30" Width="150" Margin="600,550,50,50" Background="Bisque" Click="btnAddBook_Click">Add Book</Button>
+        </Border>
+        <Border Visibility="Collapsed" Grid.Column="1" Margin="2" Background="WhiteSmoke" HorizontalAlignment="Stretch" Name="MeneyBankPanel"  BorderThickness="2" BorderBrush="Gray" >
+            <StackPanel Width="420" Height="200" Grid.Row="3" Margin="30 0">
+                <TextBlock FontSize="30" Text="increase money"/>
+                <TextBox Width="420" Height="30"  x:Name="Phone" Background="White" BorderBrush="LightGreen"/>
+                <Button FontSize="25" FontStyle="Italic" FontWeight="Heavy" Height="50" Width="420" Margin="20" Background="LightGreen">Confirm</Button>
+            </StackPanel>
+        </Border>
+        
+
+    </Grid>
+</Window>

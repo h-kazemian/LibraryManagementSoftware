@@ -8,6 +8,9 @@ namespace WpfApp1
         public MainWindow()
         {
             InitializeComponent();
+            Admin_Panel membership = new Admin_Panel();
+            membership.Show();
+            this.Close();
         }
         private void Request(object sender, RoutedEventArgs e)
         {
