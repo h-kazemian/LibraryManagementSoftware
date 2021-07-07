@@ -1,10 +1,7 @@
 ﻿using System;
 using Microsoft.Win32;
 using System.Windows;
-using System.Windows.Media;
-using System.Windows.Documents;
 using System.Windows.Media.Imaging;
-using System.Windows.Media.Animation;
 
 namespace WpfApp1
 {
@@ -19,6 +16,14 @@ namespace WpfApp1
                 Admin_Panel.IsPayment = false;
                 CardHolder.Text = "Admin";
                 Cost.Text = "$" + Admin_Panel.Money;
+                BackPayment.IsEnabled = false;
+            }
+            if (Members_Panel.IsPaymentForWallet == true)
+            {
+                PaymentTab.IsSelected = true;
+                Members_Panel.IsPaymentForWallet = false;
+                CardHolder.Text = "Member";
+                Cost.Text = "$" + Members_Panel.Wallet;
                 BackPayment.IsEnabled = false;
             }
         }

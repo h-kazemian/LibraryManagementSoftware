@@ -9,6 +9,11 @@ namespace WpfApp1
         {
             InitializeComponent();
         }
+        //Login
+        private void Login_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
         private void Request(object sender, RoutedEventArgs e)
         {
             MembershipPage membership = new MembershipPage();

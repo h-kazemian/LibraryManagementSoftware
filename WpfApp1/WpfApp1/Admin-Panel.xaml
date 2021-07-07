@@ -35,10 +35,10 @@
                         </Grid>
                     </Grid>
                 </TabItem>
-                
+
                 <TabItem x:Name="EmployeesTab" Visibility="Hidden">
                     <Grid>
-                        <ListView  ItemsSource="{Binding Employees, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" ScrollViewer.CanContentScroll="True">
+                        <ListView  ItemsSource="{Binding EmployeesReport, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" ScrollViewer.CanContentScroll="True">
                             <ListBox.ItemTemplate>
                                 <DataTemplate>
                                     <StackPanel>
@@ -48,7 +48,8 @@
                                 </DataTemplate>
                             </ListBox.ItemTemplate>
                         </ListView>
-                        <Button Content="Add" Padding="0 5" Margin="330 455 15 55" Background="#FFCDE4F9" Click="AddEmployee_Click"/>
+                        <Button Content="Salary payment" Padding="5 5" Margin="270 410 25 95" Background="#FFF6CDCD" Click="SalaryPayment_Click" FontFamily="Arial"/>
+                        <Button Content="Add " Padding="5 5" Margin="270 450 25 60" Background="#FFF6CDCD" Click="AddEmployee_Click" FontFamily="Arial"/>
                     </Grid>
                 </TabItem>
 
@@ -64,7 +65,7 @@
                                 </DataTemplate>
                             </ListBox.ItemTemplate>
                         </ListView>
-                        <Button Content="Add" Padding="0 5" Margin="330 455 15 55" Background="#FFCDE4F9" Click="AddBook_Click"/>
+                        <Button Content="Add " Padding="5 5" Margin="270 450 25 60" Background="#FFF6CDCD" Click="AddBook_Click" FontFamily="Arial"/>
                     </Grid>
                 </TabItem>
                 <TabItem x:Name="AddBookTab"  Visibility="Hidden">
@@ -108,23 +109,26 @@
                                 <TextBox x:Name="PrintingNumber" Background="Transparent"  BorderBrush="#FFA58B8B"/>
                             </StackPanel>
                             <Button x:Name="SubmitBook" Grid.Row="5" Content="Submit" VerticalAlignment="Top" Padding="0 10" Margin="70,-40,100,0" Grid.RowSpan="2" FontFamily="Arial" Background="#FFEEE9E9"/>
-                            <Button x:Name="back" Grid.Row="6" Content="Back" VerticalAlignment="Top" Padding="0 10" Margin="70,-40,100,0"  Grid.RowSpan="2" FontFamily="Arial" Background="#FFEEE9E9"/>
+                            <Button x:Name="back" Grid.Row="6" Content="Back" VerticalAlignment="Top" Padding="0 10" Margin="70,-40,100,0"  Grid.RowSpan="2" FontFamily="Arial" Background="#FFEEE9E9" Click="Back_Click"/>
                         </Grid>
                     </Grid>
                 </TabItem>
 
                 <TabItem x:Name="MoneyBankTab" Visibility="Hidden">
                     <Grid>
+                        <Grid.Background>
+                            <ImageBrush ImageSource="Background.png"/>
+                        </Grid.Background>
                         <Grid Margin="0,0,-0.4,-0.4">
                             <Grid.RowDefinitions>
-                                <RowDefinition Height="1.5*"/>
-                                <RowDefinition Height="0.5*"/>
+                                <RowDefinition Height="3*"/>
+                                <RowDefinition Height="0.6*"/>
                                 <RowDefinition Height="1.5*"/>
                                 <RowDefinition/>
                                 <RowDefinition/>
                                 <RowDefinition Height="2*"/>
                             </Grid.RowDefinitions>
-
+                            <TextBlock Text="Money Bank" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="0" FontSize="32" FontFamily="Arail" Foreground="#FF536C6F" TextDecorations="{x:Null}" FontStyle="Italic"/>
                             <StackPanel Grid.Row="1" Margin="30 0">
                                 <TextBlock Text="Total Balance" FontWeight="Bold" FontFamily="Arial"/>
                                 <TextBox Background="Transparent" IsEnabled="False" BorderBrush="#FFCDE4F9" FontWeight="Bold"/>
@@ -135,8 +139,8 @@
                                 <TextBox x:Name="Cost" Background="Transparent" BorderBrush="#FFCDE4F9" FontWeight="Bold"/>
                             </StackPanel>
 
-                            <Button Grid.Row="3" Content="Payment" VerticalAlignment="Top" Padding="0 10" Margin="30,0,30,0" Background="Transparent" Grid.RowSpan="2" FontFamily="Arial" Click="Payment_Click"/>
-                            <Button Grid.Row="4" Content="Back" VerticalAlignment="Top" Padding="0 10" Margin="30,0,30,0" Background="Transparent" Grid.RowSpan="2" FontFamily="Arial"/>
+                            <Button Grid.Row="3" Content="Payment" VerticalAlignment="Top" Padding="0 10" Margin="30,15,30,0" Background="Transparent" Grid.RowSpan="2" FontFamily="Arial" Click="Payment_Click"/>
+                            <Button Grid.Row="4" Content="Back" VerticalAlignment="Top" Padding="0 10" Margin="30,0,30,0" Background="Transparent" Grid.RowSpan="2" FontFamily="Arial" Click="Back_Click"/>
                         </Grid>
                     </Grid>
                 </TabItem>

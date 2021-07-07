@@ -129,7 +129,7 @@
                             <TextBox  Background="Transparent" BorderBrush="#FFCDE4F9" Margin="0,10,100,0"/>
                         </StackPanel>
                         <StackPanel Grid.Row="5" HorizontalAlignment="Right">
-                            <TextBlock Text="CVC" FontFamily="Arial" FontSize="10" Margin="100 0"/>
+                            <TextBlock Text="CVV" FontFamily="Arial" FontSize="10" Margin="100 0"/>
                             <TextBox Width="50"  Background="Transparent" BorderBrush="#FFCDE4F9" Margin="26 10 0 0"/>
                         </StackPanel>
 
