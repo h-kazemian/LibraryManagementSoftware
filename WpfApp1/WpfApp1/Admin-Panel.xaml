@@ -29,8 +29,8 @@
                             </Grid.RowDefinitions>
                             <TextBlock Text="Admin" HorizontalAlignment="Center" Grid.Row="0" FontSize="60" Margin="39,75,172,42.2" FontFamily="Arial" Foreground="#FF536C6F" Background="Transparent"/>
                             <Button x:Name="Employees" Grid.Row="1" Content="Employees" VerticalAlignment="Top" Padding="0 10" Margin="30,0.8,165,0" Grid.RowSpan="2" FontFamily="Arial" Background="Transparent"/>
-                            <Button x:Name="Books" Grid.Row="2" Content="Books" VerticalAlignment="Top" Padding="0 10" Margin="30,0.8,165,0" Grid.RowSpan="2" FontFamily="Arial" Background="Transparent"/>
-                            <Button x:Name="MoneyBank" Grid.Row="3" Content="Money Bank" VerticalAlignment="Top" Padding="0 10" Margin="30,0.8,165,0" Grid.RowSpan="2" FontFamily="Arial" Background="Transparent"/>
+                            <Button x:Name="EBooks" Grid.Row="2" Content="Books" VerticalAlignment="Top" Padding="0 10" Margin="30,0.8,165,0" Grid.RowSpan="2" FontFamily="Arial" Background="Transparent"/>
+                            <Button x:Name="EMoneyBank" Grid.Row="3" Content="Money Bank" VerticalAlignment="Top" Padding="0 10" Margin="30,0.8,165,0" Grid.RowSpan="2" FontFamily="Arial" Background="Transparent"/>
                             <Button x:Name="Exit" Grid.Row="4" Content="Exit" VerticalAlignment="Top" Padding="0 10" Margin="30,0.8,165,0" Grid.RowSpan="2" FontFamily="Arial" Background="Transparent"/>
                         </Grid>
                     </Grid>
