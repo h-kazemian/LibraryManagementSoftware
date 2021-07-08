@@ -63,9 +63,19 @@ namespace WpfApp1
         }
         private void BackLogin_Click(object sender, RoutedEventArgs e)
         {
-            MainWindow window = new MainWindow();
-            window.Show();
-            this.Close();
+            if (Admin_Panel.IsAddEmployee == true)
+            {
+                Admin_Panel.IsAddEmployee = false;
+                Admin_Panel admin = new Admin_Panel();
+                admin.Show();
+                this.Close();
+            }
+            else
+            {
+                MainWindow window = new MainWindow();
+                window.Show();
+                this.Close();
+            }
         }
     }
 }

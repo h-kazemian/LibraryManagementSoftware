@@ -38,18 +38,35 @@
 
                 <TabItem x:Name="EmployeesTab" Visibility="Hidden">
                     <Grid>
-                        <ListView  ItemsSource="{Binding EmployeesReport, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" ScrollViewer.CanContentScroll="True">
-                            <ListBox.ItemTemplate>
-                                <DataTemplate>
-                                    <StackPanel>
-                                        <CheckBox x:Name="Box" IsChecked="{Binding IsSelected}" Visibility="{Binding visibility}"/>
-                                        <TextBlock Text="{Binding TheText}" Visibility="Visible" Foreground="Red"/>
-                                    </StackPanel>
-                                </DataTemplate>
-                            </ListBox.ItemTemplate>
-                        </ListView>
-                        <Button Content="Salary payment" Padding="5 5" Margin="270 410 25 95" Background="#FFF6CDCD" Click="SalaryPayment_Click" FontFamily="Arial"/>
-                        <Button Content="Add " Padding="5 5" Margin="270 450 25 60" Background="#FFF6CDCD" Click="AddEmployee_Click" FontFamily="Arial"/>
+                        <Grid.Background>
+                            <ImageBrush ImageSource="Simple Background.jpg"/>
+                        </Grid.Background>
+                        
+                        <DataGrid ItemsSource="{Binding}" HorizontalAlignment="Center" Margin="0,51,0,0" VerticalAlignment="Top"
+                                  Height="230" Width="310" CanUserAddRows="False" AutoGenerateColumns="False" Name="MyGrid"
+                                  CanUserResizeRows="False" CanUserResizeColumns="False">
+
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Header="Name" Binding="{Binding Name}" FontSize="12" FontFamily="Arial" IsReadOnly="True"/>
+                                <DataGridTextColumn Header="Email" Binding="{Binding Email}" FontSize="12" FontFamily="Arial" IsReadOnly="True"/>
+                                <DataGridTextColumn Header="Phone" Binding="{Binding Phone}" FontSize="12" FontFamily="Arial" IsReadOnly="True"/>
+                                <DataGridTextColumn Header="Salary" Binding="{Binding Salary}" FontSize="12" FontFamily="Arial"/>
+                                <DataGridCheckBoxColumn Header="IsDeleted"/>
+                            </DataGrid.Columns>
+                        </DataGrid>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="3*"/>
+                                <RowDefinition Height="0.45*"/>
+                                <RowDefinition Height="0.45*"/>
+                                <RowDefinition Height="0.45*"/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+
+                            <Button x:Name="AddEmployee" Grid.Row="2" Content="Add Employee" VerticalAlignment="Top" Padding="0 10" Margin="70,-40,100,0" Grid.RowSpan="2" FontFamily="Arial" Background="#FFEEE9E9" Click="AddEmployee_Click"/>
+                            <Button x:Name="SalaryPayment" Grid.Row="3" Content="Salary payment" VerticalAlignment="Top" Padding="0 10" Margin="70,-40,100,0"  Grid.RowSpan="2" FontFamily="Arial" Background="#FFEEE9E9"/>
+                            <Button Grid.Row="4" Content="Back" VerticalAlignment="Top" Padding="0 10" Margin="70,-40,100,0"  Grid.RowSpan="2" FontFamily="Arial" Background="#FFEEE9E9" Click="Back_Click"/>
+                        </Grid>
                     </Grid>
                 </TabItem>
 

@@ -1,5 +1,8 @@
 ﻿using System.Windows;
 using System.Collections.ObjectModel;
+using System.Data.SqlClient;
+using System.IO;
+using System.Data;
 
 namespace WpfApp1
 {
@@ -29,18 +32,41 @@ namespace WpfApp1
         //The amount the admin wants to pay
         public static string Money;
 
+        public static bool IsAddEmployee = false;
         public Admin_Panel()
         {
             InitializeComponent();
+            BindDataGrid();
         }
         //Employees
         private void Employees_Click(object sender, RoutedEventArgs e)
         {
             EmployeesTab.IsSelected = true;
         }
+        public void BindDataGrid()
+        {
+            string path = Path.GetFullPath(Path.Combine(Directory.GetCurrentDirectory(), @"..\..\Asset\Database"));
+            SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=" + path + "\\Library.mdf;"
+                                                           + "Integrated Security=True;Connect Timeout=30");
+            connection.Open();
+            string Command;
+            Command = "SELECT * FROM Employee";
+
+            SqlDataAdapter adapter = new SqlDataAdapter(Command, connection);
+            DataSet data = new DataSet();
+            adapter.Fill(data, "Employee");
+
+            MyGrid.ItemsSource = data.Tables["Employee"].DefaultView;
+
+            connection.Close();
+        }
+
         private void AddEmployee_Click(object sender, RoutedEventArgs e)
         {
-
+            IsAddEmployee = true;
+            MembershipPage page = new MembershipPage();
+            page.Show();
+            this.Close();
         }
         private void SalaryPayment_Click(object sender, RoutedEventArgs e)
         {
