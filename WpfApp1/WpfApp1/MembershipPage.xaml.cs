@@ -22,9 +22,31 @@ namespace WpfApp1
     public partial class MembershipPage : Window
     {
         public bool IsMember = false;
+        public int count = 0;
         public MembershipPage()
         {
             InitializeComponent();
+
+            if(Admin_Panel.Variz == true)
+            {
+                string path = Path.GetFullPath(Path.Combine(Directory.GetCurrentDirectory(), @"..\..\Asset\Database"));
+                SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=" + path + "\\Library.mdf;"
+                                                               + "Integrated Security=True;Connect Timeout=30");
+                connection.Open();
+                string Com;
+                Com = " SELECT *FROM Employee";
+                SqlDataAdapter adapter1 = new SqlDataAdapter(Com, connection);
+                DataTable data1 = new DataTable();
+                adapter1.Fill(data1);
+                count = data1.Rows.Count;
+                count--;
+                connection.Close();
+
+                PaymentTab.IsSelected = true;
+                Cost.Text = "$" + count*300;
+                CardHolder.Text = "Admin";
+            }
+
             if (Admin_Panel.IsPayment == true)
             {
                 PaymentTab.IsSelected = true;
@@ -248,7 +270,7 @@ namespace WpfApp1
 
                         try
                         {
-                            Command = "INSERT INTO Employee (Name,Email,Phone,Password,Photo,Salary) VALUES('" + Name + "','" + Email.Text + "', '" + Phone.Text + "','" + password + "' , '" + Photo + "','3000' )";
+                            Command = "INSERT INTO Employee (Name,Email,Phone,Password,Photo,Salary) VALUES('" + Name + "','" + Email.Text + "', '" + Phone.Text + "','" + password + "' , '" + Photo + "','0' )";
 
                             SqlCommand cmd = new SqlCommand(Command, connection);
 
@@ -312,25 +334,26 @@ namespace WpfApp1
         }
         public static bool ExpirationDate_validation(string month, string year)
         {
-            try
+            DateTime t = DateTime.Now;
+            if (int.Parse(year) - t.Year < 0) return false;
+            else if (int.Parse(year) - t.Year > 1) return true;
+            else if (int.Parse(year) - t.Year == 1)
             {
-                DateTime t = DateTime.Now;
-                if (int.Parse(year) - t.Year < 0) 
-                    return false;
-                else
+                if (int.Parse(month) + 12 - t.Month < 3 ||
+                    int.Parse(month) > 12 || int.Parse(month) < 0)
                 {
-                    if (int.Parse(month)  > 12 || int.Parse(month) < 0 ||
-                        int.Parse(month) - t.Month < 3)
-                    { 
-                        return false;
-                    }
-
-                    return true;
+                    return false;
                 }
+                return true;
             }
-            catch
+            else
             {
-                return false;
+                if (int.Parse(month) - t.Month < 3 ||
+                    int.Parse(month) > 12 || int.Parse(month) < 0)
+                {
+                    return false;
+                }
+                return true;
             }
         }
         private void SubmitPayment_Click(object sender, RoutedEventArgs e)
@@ -433,18 +456,128 @@ namespace WpfApp1
                         connection.Close();
                     }
                 }
+                if (Admin_Panel.Variz == true)
+                {
+                    string path = Path.GetFullPath(Path.Combine(Directory.GetCurrentDirectory(), @"..\..\Asset\Database"));
+                    SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=" + path + "\\Library.mdf;"
+                                                                   + "Integrated Security=True;Connect Timeout=30");
+
+       
+                    int TotalMoney = -1;
+                    try
+                    {
+                        connection.Open();
+                        string Command;
+                        Command = " SELECT *FROM Employee WHERE Name = 'admin'";
+                        SqlDataAdapter adapter = new SqlDataAdapter(Command, connection);
+                        DataTable data = new DataTable();
+                        adapter.Fill(data);
+                        TotalMoney = int.Parse(data.Rows[0][5].ToString());
+                     
+                        if (TotalMoney >= 300 * count)
+                        {
+                            TotalMoney -= 300 * count;
+                            Command = "UPDATE Employee SET Salary = '" + TotalMoney + "' Where Name = 'admin'";
+                            SqlCommand cmd = new SqlCommand(Command, connection);
+                            try
+                            {
+                                cmd.ExecuteNonQuery();
+                            }
+                            catch
+                            {
+                                MessageBox.Show("   Database error!!!");
+                            }
+                        }
+                        else
+                            MessageBox.Show("         Not enough money!!!");
+
+                        Admin_Panel admin = new Admin_Panel();
+                        admin.Show();
+                        this.Close();
+                    }
+                    catch
+                    {
+                        MessageBox.Show("Database error!!!");
+                    }
+                    finally
+                    {
+                        connection.Close();
+                    }
+
+                    Admin_Panel.Variz = false;
+                }
+                if (Admin_Panel.IsPayment == true)
+                {
+                    string path = Path.GetFullPath(Path.Combine(Directory.GetCurrentDirectory(), @"..\..\Asset\Database"));
+                    SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=" + path + "\\Library.mdf;"
+                                                                   + "Integrated Security=True;Connect Timeout=30");
+
+                    int TotalMoney = -1;
+                    try
+                    {
+                        connection.Open();
+                        string Command;
+                        Command = " SELECT *FROM Employee WHERE Name = 'admin'";
+                        SqlDataAdapter adapter = new SqlDataAdapter(Command, connection);
+                        DataTable data = new DataTable();
+                        adapter.Fill(data);
+                        TotalMoney = int.Parse(data.Rows[0][5].ToString());
+
+                        var str = Cost.Text.Split('$');
+                        TotalMoney += int.Parse(str[1]);
+
+                        connection.Close();
+
+                        connection.Open();
+                        Command = "UPDATE Employee SET Salary = '" + TotalMoney + "' Where Name = 'admin'";
+                        SqlCommand cmd = new SqlCommand(Command, connection);
+                        try
+                        {
+                            cmd.ExecuteNonQuery();
+                        }
+                        catch
+                        {
+                            MessageBox.Show("   Database error!!!");
+                        }
+
+                        Admin_Panel.IsPayment = false;
+                        Admin_Panel admin = new Admin_Panel();
+                        admin.Show();
+                        this.Close();
+                        
+                    }
+                    catch
+                    {
+                        MessageBox.Show("Database error!!!");
+                    }
+                    finally
+                    {
+                        connection.Close();
+                    }
+
+                    Admin_Panel.Variz = false;
+                }
             }
         }
         private void BackPayment_Click(object sender, RoutedEventArgs e)
         {
             if (Admin_Panel.IsPayment == true)
             {
+                Admin_Panel.IsPayment = false;
                 Admin_Panel admin = new Admin_Panel();
                 admin.Show();
                 this.Close();
-            }
+            } 
             else
                 RegisterTab.IsSelected = true;
+
+            if(Admin_Panel.Variz == true)
+            {
+                Admin_Panel panel = new Admin_Panel();
+                panel.Show();
+                this.Close();
+                Admin_Panel.Variz = false;
+            }
         }
         private void BackLogin_Click(object sender, RoutedEventArgs e)
         {

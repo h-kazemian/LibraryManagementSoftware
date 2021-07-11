@@ -41,7 +41,7 @@
                         <Grid.Background>
                             <ImageBrush ImageSource="Simple Background.jpg"/>
                         </Grid.Background>
-                        
+
                         <DataGrid ItemsSource="{Binding}" HorizontalAlignment="Center" Margin="0,51,0,0" VerticalAlignment="Top"
                                   Height="230" Width="310" CanUserAddRows="False" AutoGenerateColumns="False" Name="EmployeeGrid"
                                   CanUserResizeRows="False" CanUserResizeColumns="False">
@@ -70,27 +70,45 @@
                             </Grid.RowDefinitions>
 
                             <Button x:Name="AddEmployee" Grid.Row="2" Content="Add Employee" VerticalAlignment="Top" Padding="0 10" Margin="70,-40,100,0" Grid.RowSpan="2" FontFamily="Arial" Background="#FFEEE9E9" Click="AddEmployee_Click"/>
-                            <Button x:Name="SalaryPayment" Grid.Row="3" Content="Salary payment" VerticalAlignment="Top" Padding="0 10" Margin="70,-40,100,0"  Grid.RowSpan="2" FontFamily="Arial" Background="#FFEEE9E9"/>
+                            <Button x:Name="SalaryPayment" Grid.Row="3" Content="Salary payment" VerticalAlignment="Top" Padding="0 10" Margin="70,-40,100,0"  Grid.RowSpan="2" FontFamily="Arial" Background="#FFEEE9E9" Click="SalaryPayment_Click"/>
                             <Button Grid.Row="4" Content="Back" VerticalAlignment="Top" Padding="0 10" Margin="70,-40,100,0"  Grid.RowSpan="2" FontFamily="Arial" Background="#FFEEE9E9" Click="Back_Click"/>
                         </Grid>
                     </Grid>
                 </TabItem>
-
+                
                 <TabItem x:Name="BooksTab" Visibility="Hidden">
                     <Grid>
-                        <ListView  ItemsSource="{Binding Employees, Mode=Default, UpdateSourceTrigger=PropertyChanged}" ScrollViewer.CanContentScroll="True">
-                            <ListBox.ItemTemplate>
-                                <DataTemplate>
-                                    <StackPanel>
-                                        <CheckBox IsChecked="{Binding IsSelected}" Visibility="{Binding visibility}"/>
-                                        <TextBlock Text="{Binding TheText}" Visibility="Visible" Foreground="Red"/>
-                                    </StackPanel>
-                                </DataTemplate>
-                            </ListBox.ItemTemplate>
-                        </ListView>
-                        <Button Content="Add " Padding="5 5" Margin="270 450 25 60" Background="#FFF6CDCD" Click="AddBook_Click" FontFamily="Arial"/>
+                        <Grid.Background>
+                            <ImageBrush ImageSource="Simple Background.jpg"/>
+                        </Grid.Background>
+
+                        <DataGrid ItemsSource="{Binding}" HorizontalAlignment="Center" Margin="0,51,0,0" VerticalAlignment="Top"
+                                  Height="230" Width="310" CanUserAddRows="False" AutoGenerateColumns="False" Name="BookGrid"
+                                  CanUserResizeRows="False" CanUserResizeColumns="False">
+
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Header="Name" Binding="{Binding Name}" FontSize="12" FontFamily="Arial" IsReadOnly="True"/>
+                                <DataGridTextColumn Header="Writer" Binding="{Binding Writer}" FontSize="12" FontFamily="Arial" IsReadOnly="True"/>
+                                <DataGridTextColumn Header="Genre" Binding="{Binding Genre}" FontSize="12" FontFamily="Arial" IsReadOnly="True"/>
+                                <DataGridTextColumn Header="PrintingNumber" Binding="{Binding PrintingNumber}" FontSize="12" FontFamily="Arial"/>
+                                <DataGridTextColumn Header="Numbers" Binding="{Binding Numbers}" FontSize="12" FontFamily="Arial"/>
+                            </DataGrid.Columns>
+                        </DataGrid>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="3*"/>
+                                <RowDefinition Height="0.45*"/>
+                                <RowDefinition Height="0.45*"/>
+                                <RowDefinition Height="0.45*"/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+
+                            <Button Grid.Row="2" Content="Add Book" VerticalAlignment="Top" Padding="0 10" Margin="70,-40,100,0" Grid.RowSpan="2" FontFamily="Arial" Background="#FFEEE9E9" Click="AddBook_Click"/>
+                            <Button Grid.Row="3" Content="Back" VerticalAlignment="Top" Padding="0 10" Margin="70,-40,100,0"  Grid.RowSpan="2" FontFamily="Arial" Background="#FFEEE9E9" Click="Back_Click"/>
+                        </Grid>
                     </Grid>
                 </TabItem>
+
                 <TabItem x:Name="AddBookTab"  Visibility="Hidden">
                     <Grid>
                         <Grid Margin="0,0,-0.4,-0.4">
@@ -131,8 +149,8 @@
                                 <TextBlock Text="Printing Number" FontFamily="Arial" Foreground="#FFA58B8B" FontSize="10"/>
                                 <TextBox x:Name="PrintingNumber" Background="Transparent"  BorderBrush="#FFA58B8B"/>
                             </StackPanel>
-                            <Button x:Name="SubmitBook" Grid.Row="5" Content="Submit" VerticalAlignment="Top" Padding="0 10" Margin="70,-40,100,0" Grid.RowSpan="2" FontFamily="Arial" Background="#FFEEE9E9"/>
-                            <Button x:Name="back" Grid.Row="6" Content="Back" VerticalAlignment="Top" Padding="0 10" Margin="70,-40,100,0"  Grid.RowSpan="2" FontFamily="Arial" Background="#FFEEE9E9" Click="Back_Click"/>
+                            <Button x:Name="SubmitBook" Grid.Row="5" Content="Submit" VerticalAlignment="Top" Padding="0 10" Margin="70,-40,100,0" Grid.RowSpan="2" FontFamily="Arial" Background="#FFEEE9E9" Click="SubmitBook_Click"/>
+                            <Button Grid.Row="6" Content="Back" VerticalAlignment="Top" Padding="0 10" Margin="70,-40,100,0"  Grid.RowSpan="2" FontFamily="Arial" Background="#FFEEE9E9" Click="BackBooksTab_Click"/>
                         </Grid>
                     </Grid>
                 </TabItem>
@@ -167,9 +185,31 @@
                         </Grid>
                     </Grid>
                 </TabItem>
-
-
             </TabControl>
+            <Grid>
+                <Grid>
+                    <Grid x:Name="InputBox" Visibility="Collapsed">
+                        <Grid Background="Black" Opacity="0.5"/>
+                        <Border
+            MinWidth="250"
+            Background="Orange" 
+            BorderBrush="Black" 
+            BorderThickness="1" 
+            CornerRadius="0,55,0,55" 
+            HorizontalAlignment="Center" 
+            VerticalAlignment="Center">
+                            <StackPanel>
+                                <TextBlock Margin="5" Text="Salary payment :" FontWeight="Bold" FontFamily="Cambria" />
+                                <TextBox MinWidth="150" HorizontalAlignment="Center" VerticalAlignment="Center" x:Name="InputTextBox"/>
+                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                    <Button x:Name="YesButton" Margin="5" Content="Yes" Background="{x:Null}" Click="YesButton_Click"/>
+                                    <Button x:Name="NoButton" Margin="5" Content="No" Background="{x:Null}" Click="NoButton_Click" />
+                                </StackPanel>
+                            </StackPanel>
+                        </Border>
+                    </Grid>
+                </Grid>
+            </Grid>
         </Grid>
     </Grid>
 </Window>
