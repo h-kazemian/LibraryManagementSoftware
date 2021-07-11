@@ -44,6 +44,7 @@ namespace WpfApp1
                         }
                         KindPanel = 1;
                     }
+                    connection.Close();
                 }
                 //Member
                 else
@@ -62,6 +63,7 @@ namespace WpfApp1
                         }
                         KindPanel = 2;
                     }
+                    connection.Close();
                 }
             }
             bool Login = false;
@@ -138,7 +140,6 @@ namespace WpfApp1
                     this.Close();
                 }
             }
-            connection.Close();
         }
         private void Request(object sender, RoutedEventArgs e)
         {

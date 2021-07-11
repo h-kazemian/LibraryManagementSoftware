@@ -3,6 +3,7 @@ using System.Collections.ObjectModel;
 using System.Data.SqlClient;
 using System.IO;
 using System.Data;
+using System.Windows.Forms;
 
 namespace WpfApp1
 {
@@ -36,31 +37,72 @@ namespace WpfApp1
         public Admin_Panel()
         {
             InitializeComponent();
-            BindDataGrid();
+
+            BindDataGridEmployee();
         }
         //Employees
         private void Employees_Click(object sender, RoutedEventArgs e)
         {
             EmployeesTab.IsSelected = true;
         }
-        public void BindDataGrid()
+        public void BindDataGridEmployee()
         {
-            string path = Path.GetFullPath(Path.Combine(Directory.GetCurrentDirectory(), @"..\..\Asset\Database"));
-            SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=" + path + "\\Library.mdf;"
-                                                           + "Integrated Security=True;Connect Timeout=30");
-            connection.Open();
-            string Command;
-            Command = "SELECT * FROM Employee";
+            try
+            {
+                string path = Path.GetFullPath(Path.Combine(Directory.GetCurrentDirectory(), @"..\..\Asset\Database"));
+                SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=" + path + "\\Library.mdf;"
+                                                               + "Integrated Security=True;Connect Timeout=30");
+                connection.Open();
+                string Command;
+                Command = " SELECT * FROM Employee where Name != 'admin' ";
+               
+                SqlDataAdapter adapter = new SqlDataAdapter(Command, connection);
+                DataSet data = new DataSet();
+                adapter.Fill(data, "Employee");
 
-            SqlDataAdapter adapter = new SqlDataAdapter(Command, connection);
-            DataSet data = new DataSet();
-            adapter.Fill(data, "Employee");
+                EmployeeGrid.ItemsSource = data.Tables["Employee"].DefaultView;
 
-            MyGrid.ItemsSource = data.Tables["Employee"].DefaultView;
-
-            connection.Close();
+                connection.Close();
+            }
+            catch
+            {
+                System.Windows.MessageBox.Show("    Database error !!!");
+            }
         }
+        private void RemoveEmployee_Click(object sender, RoutedEventArgs e)
+        {
+            DialogResult result =
+                (DialogResult)System.Windows.MessageBox.Show
+                ("    Are you sure you want to delete this record?", "Delete",
+                (MessageBoxButton)MessageBoxButtons.YesNo,
+                (MessageBoxImage)MessageBoxIcon.Question,
+                (MessageBoxResult)MessageBoxDefaultButton.Button1); ;
 
+            DataRowView dataRowView = (DataRowView)((System.Windows.Controls.Button)e.Source).DataContext;
+
+            if (result == System.Windows.Forms.DialogResult.Yes)
+            {
+                string path = Path.GetFullPath(Path.Combine(Directory.GetCurrentDirectory(), @"..\..\Asset\Database"));
+                SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=" + path + "\\Library.mdf;"
+                                                               + "Integrated Security=True;Connect Timeout=30");
+                try
+                {
+                    connection.Open();
+                    string Command;
+                    Command = " DELETE FROM Employee WHERE Name = '" + dataRowView.Row[0] + "' ";
+
+                    SqlCommand cmd = new SqlCommand(Command, connection);
+     
+                    cmd.ExecuteNonQuery();
+                }
+                finally
+                {
+                    connection.Close();
+                }
+
+                dataRowView.Delete();
+            }
+        }
         private void AddEmployee_Click(object sender, RoutedEventArgs e)
         {
             IsAddEmployee = true;
@@ -85,6 +127,28 @@ namespace WpfApp1
         private void MoneyBank_Click(object sender, RoutedEventArgs e)
         {
             MoneyBankTab.IsSelected = true;
+
+            string path = Path.GetFullPath(Path.Combine(Directory.GetCurrentDirectory(), @"..\..\Asset\Database"));
+            SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=" + path + "\\Library.mdf;"
+                                                           + "Integrated Security=True;Connect Timeout=30");
+            try
+            {
+                connection.Open();
+                string Command;
+                Command = " Select * FROM Employee WHERE Name = 'admin' ";
+
+                SqlDataAdapter adapter = new SqlDataAdapter(Command, connection);
+                DataTable data = new DataTable();
+                adapter.Fill(data);
+
+                TotalBalance.Text = data.Rows[0][5].ToString();
+               
+            }
+            finally
+            {
+                connection.Close();
+            }
+
         }
         private void Payment_Click(object sender, RoutedEventArgs e)
         {

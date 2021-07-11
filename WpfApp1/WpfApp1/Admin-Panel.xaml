@@ -43,7 +43,7 @@
                         </Grid.Background>
                         
                         <DataGrid ItemsSource="{Binding}" HorizontalAlignment="Center" Margin="0,51,0,0" VerticalAlignment="Top"
-                                  Height="230" Width="310" CanUserAddRows="False" AutoGenerateColumns="False" Name="MyGrid"
+                                  Height="230" Width="310" CanUserAddRows="False" AutoGenerateColumns="False" Name="EmployeeGrid"
                                   CanUserResizeRows="False" CanUserResizeColumns="False">
 
                             <DataGrid.Columns>
@@ -51,7 +51,13 @@
                                 <DataGridTextColumn Header="Email" Binding="{Binding Email}" FontSize="12" FontFamily="Arial" IsReadOnly="True"/>
                                 <DataGridTextColumn Header="Phone" Binding="{Binding Phone}" FontSize="12" FontFamily="Arial" IsReadOnly="True"/>
                                 <DataGridTextColumn Header="Salary" Binding="{Binding Salary}" FontSize="12" FontFamily="Arial"/>
-                                <DataGridCheckBoxColumn Header="IsDeleted"/>
+                                <DataGridTemplateColumn x:Name="Remove" Header="Remove">
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <Button Click="RemoveEmployee_Click">Delete</Button>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
                             </DataGrid.Columns>
                         </DataGrid>
                         <Grid>
@@ -72,7 +78,7 @@
 
                 <TabItem x:Name="BooksTab" Visibility="Hidden">
                     <Grid>
-                        <ListView  ItemsSource="{Binding Employees, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" ScrollViewer.CanContentScroll="True">
+                        <ListView  ItemsSource="{Binding Employees, Mode=Default, UpdateSourceTrigger=PropertyChanged}" ScrollViewer.CanContentScroll="True">
                             <ListBox.ItemTemplate>
                                 <DataTemplate>
                                     <StackPanel>
@@ -148,7 +154,7 @@
                             <TextBlock Text="Money Bank" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="0" FontSize="32" FontFamily="Arail" Foreground="#FF536C6F" TextDecorations="{x:Null}" FontStyle="Italic"/>
                             <StackPanel Grid.Row="1" Margin="30 0">
                                 <TextBlock Text="Total Balance" FontWeight="Bold" FontFamily="Arial"/>
-                                <TextBox Background="Transparent" IsEnabled="False" BorderBrush="#FFCDE4F9" FontWeight="Bold"/>
+                                <TextBox  x:Name="TotalBalance"  Background="Transparent" IsEnabled="False" BorderBrush="#FFCDE4F9" FontWeight="Bold"/>
                             </StackPanel>
 
                             <StackPanel Grid.Row="2" Margin="30 30 30 0">
