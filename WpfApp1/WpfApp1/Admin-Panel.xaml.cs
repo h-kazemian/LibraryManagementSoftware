@@ -34,6 +34,7 @@ namespace WpfApp1
         public static string Money;
 
         public static bool IsAddEmployee = false;
+
         public Admin_Panel()
         {
             InitializeComponent();
